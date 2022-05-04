@@ -1,0 +1,23 @@
+<div class="container p-4">
+	<div class="card text-center md-4 mx-auto">
+		<div class="card-header">
+			<h3>Ticket de compra</h3>
+		</div>
+		<div class="card-body">
+			<h5>{{data.itemsLength}} Productos</h5>
+			<br>
+			<h5 id="items">Productos: {{#each data.products}}{{this.name}}, {{/each}}</h5>
+			<br>
+			<h5>Total: {{data.total}}</h5>
+			<br>
+			<a href="/" class="btn btn-secondary">Regresar</a>
+		</div>
+	</div>
+</div>
+<script>
+	// esto no es importante, solamente reemplaza la coma del final de los productos por un punto
+	const items = document.getElementById("items");
+	const textarray = items.innerText.slice("Productos: ".length).trim().split(/ +/g);
+	textarray[textarray.length - 1] = textarray[textarray.length - 1].replace(",", ".");
+	items.innerText = `Productos: ${textarray.join(" ")}`;
+</script>

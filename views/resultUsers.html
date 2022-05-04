@@ -1,0 +1,28 @@
+<div class="container p-4">
+	{{#each users}}
+	<div class="card text-center md-4">
+		<div class="card-header">
+			<h3>{{this.fullName}} ({{this.id}})</h3>
+		</div>
+		<div class="card-body">
+			<p>Alias: {{this.username}}</p>
+			<div class="btn-group" role="group" aria-label="Options">
+				<a href="/panel/deleteusers?id={{this.id}}" class="btn btn-danger">Eliminar</a>
+				<a href="/panel/updateusers?id={{this.id}}" class="btn btn-secondary">Editar</a>
+			</div>
+		</div>
+	</div>
+	<br>
+	{{else}}
+	<div class="container p-4">
+		<div class="card text-center md-4">
+			<div class="card-header">
+				<h3>Oops... No hubo ningún resultado</h3>
+			</div>
+			<div class="card-body">
+				<a href="/panel/searchusers" class="btn btn-secondary">Regresar</a>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>

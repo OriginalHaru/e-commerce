@@ -1,0 +1,29 @@
+<center>
+	{{#each products}}
+	<div class="container p-4">
+		<div class="card text-center">
+			<div class="card-header">
+				<h3>{{this.name}}</h3>
+			</div>
+			<div class="card-body">
+				<img src="{{this.imageURL}}" class="img-fluid" width="450px">
+				<br>
+				<br>
+				<a class="btn btn-primary" href="/product/{{this.id}}">Ver producto</a>
+			</div>
+		</div>
+	</div>
+	{{else}}
+	<div class="container p-4">
+	<div class="card text-center">
+		<div class="card-header">
+			<h3>Oops... No hubo resultados</h3>
+			<p>Recuerda que los resultados que se muestren son en base a coíncidencias con el nombre del producto o la descripción</p>
+		</div>
+		<div class="card-body">
+			<a class="btn btn-primary" href="/">Regresar</a>
+		</div>
+	</div>
+	</div>
+	{{/each}}
+</center>

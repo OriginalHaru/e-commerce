@@ -1,0 +1,25 @@
+<div class="container p-4">
+	<div class="card text-center md-4">
+		<div class="card-header">
+			<h3>Eliminar usuario</h3>
+		</div>
+		<div class="card-body">
+			<form action="/users/delete" method="POST">
+				<input type="text" hidden id="hidden-input" name="id">
+				<button type="submit" hidden disabled id="form-submit-btn"></button>
+			</form>
+			<label for="id">ID</label>
+			<br>
+				{{#if noid}}
+			<input type="text" required maxlength="12" autocomplete="off" id="id-input">
+				{{/if}}
+				{{#if id}}
+			<input type="text" required maxlength="12" autocomplete="off" value="{{id}}" id="id-input">
+				{{/if}}
+			<p>Escribe "Acepto las consecuencias que esto conlleva" para continuar</p>
+			<input type="text" autocomplete="off" name="confirm-input" id="confirm-input" onkeypress="checkConfirmInput(event, 'confirm-input', 'submit-btn')" onkeydown="checkConfirmInput(event, 'confirm-input', 'submit-btn')" onkeyup="checkConfirmInput(event, 'confirm-input', 'submit-btn')">
+			<button type="button" disabled class="btn btn-danger" onclick="sendDeleteUserForm('form-submit-btn', 'hidden-input', 'id-input')" id="submit-btn">Eliminar</button>
+		</div>
+	</div>
+</div>
+<script src="/js/PanelManager.js"></script>

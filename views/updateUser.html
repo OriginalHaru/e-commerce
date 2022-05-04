@@ -1,0 +1,21 @@
+<div class="container p-4 text-center">
+	<form action="/users/update" method="POST">
+	<input hidden value="{{data.id}}" name="id">
+	<label for="fullName" class="form-label">Nombre completo</label>
+	<br>
+	<input type="text" value="{{data.fullName}}" id="fullName" required name="fullName">
+	<br>
+	<br>
+	<label for="username" class="form-label">Nombre de usuario</label>
+	<br>
+	<input type="text" value="{{data.username}}" id="username" required name="username">
+	<br>
+	<br>
+	<label for="isadmin" class="form-label">Es Admin</label>
+	<br>
+	<input type="text" value="{{data.isAdmin}}" id="isadmin" required name="isAdmin">
+	<br>
+	<br>
+	<button class="btn btn-success" type="submit">Guardar cambios</button>
+	</form>
+</div>

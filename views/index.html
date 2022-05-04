@@ -1,0 +1,42 @@
+<center>
+	{{#each products}}
+	<div class="container p-4">
+		<div class="card text-center">
+			<div class="card-header">
+				<h3>{{this.name}}</h3>
+			</div>
+			<div class="card-body">
+				<img src="{{this.imageURL}}" class="img-fluid" width="450px">
+				<br>
+				<br>
+				<a class="btn btn-secondary" href="/product/{{this.id}}">Ver producto</a>
+			</div>
+		</div>
+	</div>
+	{{else}}
+	<div class="container p-4">
+	<div class="card text-center">
+		<div class="card-header">
+			<h3>Oops... No hay productos de momento</h3>
+		</div>
+		{{#if user}}
+		{{#if isAdmin}}
+		<div class="card-body">
+			<a class="btn btn-primary" href="/add">Añadir producto</a>
+		</div>
+		{{/if}}
+		{{#if noAdmin}}
+		<div class="card-body">
+			<h5>Revisa más tarde!</h5>
+		</div>
+		{{/if}}
+		{{/if}}
+		{{#if nouser}}
+		<div class="card-body">
+			<h5>Revisa más tarde!</h5>
+		</div>
+		{{/if}}
+	</div>
+	</div>
+	{{/each}}
+</center>

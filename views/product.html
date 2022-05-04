@@ -1,0 +1,21 @@
+<div class="container p-4">
+	<div class="card text-center">
+		<div class="card-header">
+			<h3>{{data.name}}</h3>
+		</div>
+		<div class="card-body md-4">
+			<img src="{{data.imageURL}}" class="img-fluid">
+			<h4>{{data.price}}$ - Stock: {{data.stock}}</h4>
+			<h5>Descripción: {{data.summary}}</h5>
+			{{#if user}}
+			<button class="btn btn-success" type="button" onclick="addProduct('{{data.id}}', '{{user.id}}', 'btn-submit')" id="btn-submit">Añadir al carrito</button>
+			{{#if isAdmin}}
+			<div class="btn-group" role="group" aria-label="Delete and edit button">
+				<a type="button" class="btn btn-danger" href="/products/delete?id={{data.id}}">Eliminar</a>
+				<a type="button" class="btn btn-secondary" href="/edit?productId={{data.id}}">Editar</a>
+			</div>
+			{{/if}}
+			{{/if}}
+		</div>
+	</div>
+</div>
